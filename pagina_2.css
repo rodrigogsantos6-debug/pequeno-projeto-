@@ -3,30 +3,53 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
 body {
-    background-color: #121212; /* Fundo escuro padrão Epic */
+    background-color: #121212;
     color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    padding-top: 0;
     min-height: 100vh;
 }
 
-h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
+/* --- Estilo do Menu (NAV) --- */
+nav {
+    width: 100%;
+    background-color: #1a1a1a;
+    padding: 15px 40px;
+    display: flex;
+    gap: 25px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 40px;
 }
 
-/* Container de entrada */
+nav a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+/* --- Restante do Layout --- */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
 label {
     margin-bottom: 8px;
-    font-size: 0.9rem;
     color: #a0a0a0;
+    font-size: 0.9rem;
 }
 
 input {
@@ -35,18 +58,11 @@ input {
     color: white;
     padding: 12px;
     border-radius: 4px;
-    width: 100%;
-    max-width: 300px;
+    width: 300px;
     margin-bottom: 15px;
     outline: none;
-    transition: border 0.3s ease;
 }
 
-input:focus {
-    border-color: #0078f2; /* Azul Epic */
-}
-
-/* Botão estilo "Get" ou "Buy" da loja */
 button {
     background-color: #0078f2;
     color: white;
@@ -56,30 +72,16 @@ button {
     cursor: pointer;
     font-weight: bold;
     text-transform: uppercase;
-    transition: background 0.2s;
 }
 
 button:hover {
     background-color: #0060bf;
 }
 
-/* Estilo para o resultado da tabuada */
 #resultadoTabuada {
     margin-top: 30px;
-    width: 100%;
-    max-width: 300px;
+    width: 300px;
     background-color: #1a1a1a;
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid #2a2a2a;
-}
-
-/* Opcional: Se você estiver exibindo a tabuada em parágrafos ou lista */
-#resultadoTabuada p {
-    padding: 8px 0;
-    border-bottom: 1px solid #2a2a2a;
-}
-
-#resultadoTabuada p:last-child {
-    border-bottom: none;
 }
