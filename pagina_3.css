@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* Reset estrutural */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #03060a;
+    color: #a6b4c2;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Alterado para permitir o crescimento fluido do layout */
+    padding: 60px 20px;
+}
+
+/* Container principal - Alinhamento dos filhos diretos */
+body > h1,
+body > label,
+body > input,
+body > button,
+body > #resultadoTabuada,
+body > .back-link {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 480px;
+}
+
+/* Efeito de névoa fria nas bordas da página */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(14,26,36,0.1) 20%, #020407 90%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Título principal */
+h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+    letter-spacing: 0.15em;
+    color: #bcd4e6;
+    text-shadow: 0 0 25px rgba(188, 212, 230, 0.3), 0 4px 10px rgba(0, 0, 0, 0.9);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Label */
+label {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: #4c5d6e;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+/* Input numérico */
+input[type="number"] {
+    width: 100%;
+    background: rgba(6, 12, 20, 0.7);
+    border: 1px solid #111d2b;
+    color: #bcd4e6;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    padding: 10px 16px;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    appearance: textfield;
+    -moz-appearance: textfield;
+    margin-bottom: 12px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"]::placeholder {
+    color: #2e3e4e;
+}
+
+input[type="number"]:hover {
+    border-color: #1e3245;
+}
+
+input[type="number"]:focus {
+    border-color: #3b526b;
+    box-shadow: 0 0 12px rgba(59, 82, 107, 0.2);
+}
+
+/* Botão */
+#btnGerar {
+    width: 100%;
+    background: rgba(6, 12, 20, 0.7);
+    border: 1px solid #111d2b;
+    color: #8da1b5;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    padding: 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+#btnGerar:hover {
+    border-color: #3b526b;
+    background: rgba(10, 20, 31, 0.9);
+    color: #bcd4e6;
+    box-shadow: 0 0 20px rgba(139, 181, 204, 0.08);
+}
+
+#btnGerar:active {
+    transform: scale(0.99);
+}
+
+/* Área de resultado */
+#resultadoTabuada {
+    margin-top: 40px;
+    width: 100%;
+}
+
+/* Título da tabuada gerada */
+.tabuada-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: #8da1b5;
+    letter-spacing: 0.08em;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #14202e;
+}
+
+/* Cada linha da tabuada */
+.tabuada-linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 16px;
+    background: rgba(6, 12, 20, 0.7);
+    border: 1px solid #111d2b;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tabuada-linha:hover {
+    border-color: #3b526b;
+    background: rgba(10, 20, 31, 0.9);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Expressão: "7 × 3" */
+.tabuada-expr {
+    font-size: 1.1rem;
+    color: #4c5d6e;
+}
+
+/* Resultado: "21" */
+.tabuada-valor {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #bcd4e6;
+}
+
+/* Responsividade mobile */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    body {
+        padding: 40px 16px;
+    }
+}
+
+/* Botão voltar (Estilizado de forma limpa e única) */
+.back-link {
+    display: block;
+    font-family: 'Cinzel', serif;
+    color: #4c5d6e;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 24px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: color 0.3s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.back-link--visivel {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.back-link:hover {
+    color: #8bb5cc;
+}
